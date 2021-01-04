@@ -1,0 +1,404 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel = "stylesheet" type = "text/css" href= "{%  static '/css/yummy.css' %} "> -->
+    <title>Chereta.com</title>
+    
+<style>
+    body{
+
+margin:0px;
+}
+
+#main{
+    width:100%;
+    background-color:rgb(46, 46, 107);
+    padding-left :  6%;
+    padding-bottom: 7px;
+    overflow: hidden;
+    
+    
+}
+
+#navbar{
+    padding-left:6%;
+    color:white;
+    background:orange;
+
+
+}
+
+#navbar ul{
+    list-style: none;
+    padding:0;
+
+}
+
+#navbar li{
+    display:inline;
+
+}
+
+#navbar a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    padding-right:15px;
+
+}
+
+
+.container{
+    width:100%;
+    margin:auto;
+    overflow: hidden;
+    color:white;
+    padding:20px;
+    background:orange;
+
+  
+
+}
+
+#lorem_main{
+    width:50%;
+    /* padding:0 30px; */
+    box-sizing:border-box;
+    float:left;
+   
+    margin-left: 10px;
+    
+    
+}
+
+
+#sidebar{
+    float:right;
+    width:40%;
+    background:rgb(71, 69, 69);
+    color:white;
+    /* padding:10px; */
+    box-sizing:border-box;
+    margin-right:20px;
+    
+}
+#header{
+    position: relative;
+    top:0%;  
+    overflow: hidden;
+    color:white;
+    font-weight: 100px;
+    font-family:Helvetica, sans-serif;
+    margin-bottom: 50px;
+    
+}
+
+#topic{
+    overflow: hidden;
+    color:white;
+}
+#topic #first{
+   
+    font-size:16px;
+    font-family:Arial,Helvetica, sans-serif;
+    margin-bottom:0px;
+    
+}
+#topic h1{
+    font-family: sans-serif;
+    font-weight: 120px;
+    margin-top:0px;
+    
+}
+
+#topic p{
+padding-right:24%;
+}
+
+#form_area{
+    border:1px white ;
+    border-radius: 7px;;
+    background-color:white;
+    max-width:65%;
+    padding:4px 20px;
+    margin-bottom:7%;
+    box-shadow: 0.3em .2em rgba(24, 23, 23, 0.685);
+    
+
+}
+#form_area p{
+color:rgb(53, 53, 187);
+font-family:  Helvetica,  sans-serif;
+
+}
+
+
+#form_area small{
+    display: block;
+    font-family:  Helvetica,  sans-serif;
+    color:rgb(146, 140, 140);
+    font-size: 11px;
+    margin-bottom:20px;
+    
+}
+#form_area input[type="text"]{
+width :60%;
+overflow: hidden;
+height:30px;
+box-shadow: black;
+margin-right: 5px;
+box-sizing: border-box;
+border:1px solid rgb(156, 154, 154);
+border-radius: 4px;
+text-align: center;
+
+}
+
+#form_area input[type="text"]:hover{
+    border:1px solid rgba(46, 46, 107, 0.548);
+}
+
+#form_area input[type = "submit"]
+{
+    background:orange;
+    width:35%;
+    box-sizing:border-box;
+    font-size:1em;
+    padding:0.5em;
+    color:white;
+    border: hidden;
+    font-weight:bold;
+    border-radius: 0.5em;
+   
+    
+}
+
+#form_area input[type = "submit"]:hover
+{
+border:1px solid rgb(87, 58, 5);
+}
+
+
+#footer{
+    width :100%;
+    overflow:hidden;
+    width:100%; 
+   
+ 
+    text-align: center;
+    font-size:12px;
+    color:rgb(5, 0, 0);
+}
+
+
+#main #header{
+    animation: anime 3s forwards;
+}
+
+#main #topic, #form_area{
+    animation: second 3s forwards;
+}
+@keyframes second{
+
+    from{opacity:0;}
+
+    to{opacity: 1;}
+
+}
+@keyframes anime{
+
+    from{
+        opacity:0;
+        margin: -2em;}
+
+    to{
+        opacity: 1;
+        margin:0em 0em;}
+
+}
+
+
+@media(max-width:700px){
+
+    #main{
+        background-color:rgba(46, 46, 107, 0.548);
+        padding-left:5px;
+        padding-right:5px;
+        padding-bottom: 7px;
+        text-align: center;
+        overflow:hidden;
+        
+    }
+    
+    #header{
+        margin-bottom:0px;
+    }
+    
+#topic p{
+    width:70%;
+    margin:auto;
+    padding-right:0px;
+    margin-bottom:20px;
+    
+    }
+    
+    
+   
+#form_area{
+    max-width:100%;
+   border-radius:2px;
+
+}
+    
+    #form_area small{
+    width:80%;
+    margin:auto;
+
+    }
+
+    #form_area input[type="text"]{
+    width :97%;
+    margin:auto;
+    
+    }
+    
+    #form_area input[type = "submit"]
+    {
+        width:97%;
+        float: none;
+        margin-top:0.5em;
+        padding: 0.5em 0em;
+        font-size:1.3em;
+        font-weight: bold;
+        cursor: pointer ;
+        
+    }
+ 
+}
+
+
+</style>
+</head>
+<body>
+
+       
+<!-- from lorem -->
+<div id= "navbar">
+            
+                <div class = "container">
+        
+                    <ul>
+                        <li><a href="url {{index}}">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Services</a></li>
+                        <li style="margin-right:600px"><a href="">Contact</a></li>
+                        <li><a  href="to_login_form/">Login</a></li>
+                        <li><a href="to_sing_in_form/">Sign in</a></li>
+                    
+        
+                    </ul>
+        
+        
+                </div>
+        
+        
+</div>
+<!-- from lorem! -->
+<div id = "main">
+<!-- from yumm -->
+            <div id = "header">
+                <h3>
+                    CHERETA.com
+                </h3>
+
+            </div>
+
+
+            <div id = "topic">
+                <p >
+                   Make it Yours 
+                <p>
+                <h1>
+                    On Chereta.com
+                </h1>
+                <p>
+                   This is an Ethiopian Based website enabling you to bid on available auctions. It also enables you to post your own
+                   auction and make it visible to all buyers over the internet.
+                </p>
+
+            </div>
+
+
+            <div id = "form_area">
+                {%csrf_token%}
+                <form action="/home_page/" method="POST">
+                    {%csrf_token%}
+
+                    <p>Search auction by title or type :</p>
+                    <input type = "text" id = "text_area" placeholder="type here"/>
+                    <input type = "submit" id = "submit" name = "submit_btn" value= "Find auction "/>
+                    <small>Example: "Cars"</small>
+                </form>    
+            </div>
+
+        </div>
+
+
+<!-- from yumm! -->
+
+<!-- from lorem -->
+        <div class = "container">
+            <section id = "lorem_main">
+                <h1>How it works</h1>
+                <ul>
+                    <li>
+                        <h3>If you want a quick search for an auction</h3>
+                         <ol>
+                            <li>
+                                <p>Just type the title of the auction or product type like house, cars or painting. Then press the search button.
+                                Then you will be directed to a page with results for your search.  </p>
+                            </li>
+                            <li>
+                                From the list ...
+                            </li>
+                        </ol>
+
+                    </li>
+                    <li>
+                        <h3>Post auctions and/or save and manage your auctions using your own account </h3>
+                        <p>Create an account and follow the steps.. </p>
+                    </li>
+
+                </ul>
+                <p></p>
+            </section>
+
+            <aside id = "sidebar">
+                <p>
+                    We have more than 10,000 available auctions. Find your auction and bid to win. 
+                </p>
+            </aside>
+
+
+        </div>
+<!-- from lorem! -->
+        
+
+<!-- from yumm -->
+        <div id ="footer">
+            <p>Copyright &copy; reserved by JOYI (Jossy & Yismu)!</p>
+        </div>
+<!-- from yumm! -->
+
+       
+        
+
+       
+    
+</body>
+
+
+</html>

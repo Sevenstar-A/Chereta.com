@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chereta.com</title>
+    
+    <style>
+        body{
+            margin:0px;
+            background-color:rgb(46, 46, 107);
+
+        }
+
+        
+#header{
+    position: relative;
+    margin:30px 10%;
+    overflow: hidden;
+    color:white;
+    font-weight: 100px;
+    font-family:Helvetica, sans-serif;
+    
+    
+}
+        #main{
+
+        border:1px white ;
+    border-radius: 7px;;
+    background-color:white;
+    max-width:65%;
+    
+    box-shadow: 0.3em .2em rgba(24, 23, 23, 0.685);
+
+            width:60%;
+            margin:auto;
+            padding:20px 20px 50px 20px;
+            color:white;
+            background:orange;
+        }
+         input[type="text"]{
+width :60%;
+overflow: hidden;
+height:30px;
+box-shadow: black;
+margin-right: 5px;
+box-sizing: border-box;
+border:1px solid rgb(156, 154, 154);
+border-radius: 4px;
+
+
+}
+
+ input[type="text"]:hover{
+    border:1px solid rgba(46, 46, 107, 0.548);
+}
+
+ input[type = "submit"]
+{
+    background-color:rgb(46, 46, 107);
+    width:35%;
+    box-sizing:border-box;
+    font-size:1em;
+    padding:0.5em;
+    color:white;
+    border: hidden;
+    font-weight:bold;
+    border-radius: 0.5em;
+   
+    
+}
+
+ input[type = "submit"]:hover
+{
+border:1px solid rgb(87, 58, 5);
+}
+
+    </style>
+</head>
+<body>
+
+    <div id = "header">
+        <h3>
+            CHERETA.com
+        </h3>
+
+    </div>
+
+   
+    <form action= "/sign_in_validator/" method="POST">
+
+        
+       
+       
+        <div id= "main">
+            {% csrf_token %}
+            {%if error == 'True' %}
+
+            <h4 style="color:rgb(236, 65, 65)">Invalid username or password. Try again!</h4> 
+            {%endif%}
+            <label for="firstname_area">First Name:</label>
+            <input id="firstname_area" placeholder="first name" type="text" name="firstname_area" value=" "> </input>
+            <br><br>
+
+            <label for="lastname_area">Last Name:</label>
+            <input id="lastname_area" placeholder="last name" type="text" name="lastname_area" value=" "> </input>
+            <br><br>
+
+
+            <label for="name_area">User name:</label>
+            <input id="name_area" placeholder="name" type="text" name="name_area" value=" "> </input>
+            <br><br>
+
+            <label for="password_area">Password:</label>
+            <input id="password_area" type="password" name="password_area" value=" "> </input>
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input id="email" placeholder="email" type="email" name="email" value=" "> </input>
+            <br><br>
+
+            <label for="city">City:</label>
+            <input id="city" placeholder="city" type="text" name="city" value=" "> </input>
+            <br><br>
+
+
+            <label for="phone">Phone:</label>
+            <input id="phone" placeholder="phone" type="number" name="phone" value=" "> </input>
+            <br><br>
+            
+            <label for="credit_card">Credit Card(Nigd Bank Account No):</label>
+            <input id="credit_card" placeholder="credit_card" type="number" name="credit_card" value=" "> </input>
+            <br><br>
+            
+            
+
+            <input type="submit" name="submit_btn" value="Sign in">
+        </div> 
+    </form>
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chereta.com</title>
+    
+    <style>
+        body{
+            margin:0px;
+            background-color:rgb(46, 46, 107);
+
+        }
+
+        
+#header{
+    position: relative;
+    margin:30px 10%;
+    overflow: hidden;
+    color:white;
+    font-weight: 100px;
+    font-family:Helvetica, sans-serif;
+    
+    
+}
+        #main{
+
+        border:1px white ;
+    border-radius: 7px;;
+    background-color:white;
+    max-width:65%;
+    
+    box-shadow: 0.3em .2em rgba(24, 23, 23, 0.685);
+
+            width:60%;
+            margin:auto;
+            padding:20px 20px 50px 20px;
+            color:white;
+            background:orange;
+        }
+         input[type="text"]{
+width :60%;
+overflow: hidden;
+height:30px;
+box-shadow: black;
+margin-right: 5px;
+box-sizing: border-box;
+border:1px solid rgb(156, 154, 154);
+border-radius: 4px;
+
+
+}
+
+ input[type="text"]:hover{
+    border:1px solid rgba(46, 46, 107, 0.548);
+}
+
+ input[type = "submit"]
+{
+    background-color:rgb(46, 46, 107);
+    width:35%;
+    box-sizing:border-box;
+    font-size:1em;
+    padding:0.5em;
+    color:white;
+    border: hidden;
+    font-weight:bold;
+    border-radius: 0.5em;
+   
+    
+}
+
+ input[type = "submit"]:hover
+{
+border:1px solid rgb(87, 58, 5);
+}
+
+    </style>
+</head>
+<body>
+
+    <div id = "header">
+        <h3>
+            CHERETA.com
+        </h3>
+
+    </div>
+
+   
+    <form action= "/{{user_id}}/new_post_validator/" method="POST">
+
+        
+       
+       
+        <div id= "main">
+            {% csrf_token %}
+            {%if error == 'True' %}
+
+            <h4 style="color:rgb(236, 65, 65)">Invalid input found. Try again!</h4> 
+            {%endif%}
+            <label for="Title">Title:</label>
+            <input id="Title" placeholder="first Title" type="text" name="Title" value=" "> </input>
+            <br><br>
+
+            <label for="Description">Description:</label>
+            <input id="Description" placeholder="Description" type="text" name="Description" value=" "> </input>
+            <br><br>
+
+
+            <label for="Catagory">Catagory:</label>
+            <input id="Catagory" placeholder="Catagory" type="text" name="Catagory" value=" "> </input>
+            <br><br>
+
+            <label for="Base_cost">Base cost:</label>
+            <input id="Base_cost" type="number" name="Base_cost" value=" "> </input>
+            <br><br>
+
+            <label for="Date_created">Starting Date:</label>
+            <input id="Date_created" placeholder="Date created" type="date" name="Date_created" value=" "> </input>
+            <br><br>
+
+            <label for="Date_closing">closing Date:</label>
+            <input id="Date_closing" placeholder="Closing Date" type="date" name="Date_closing" value=" "> </input>
+            <br><br>
+    
+
+            <input type="submit" name="post_auction_btn" value="Post Auction">
+        </div> 
+    </form>
+
+    
+    
+</body>
+</html>

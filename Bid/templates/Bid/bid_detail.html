@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chereta.com</title>
+
+    <style>
+
+              
+body{
+    margin:0px;
+    background-color:rgb(46, 46, 107);
+    
+}
+    
+.list_items{
+            width: 100%;
+            padding: 10px;
+            border:0.4px solid #888;
+            margin: 10px;
+            background-color: #666;
+            color:white;
+        }
+
+#navbar{
+    padding:15px 25px;
+    color:white;
+    background:orange;
+
+
+
+}
+
+#navbar ul{
+    list-style: none;
+    padding:0;
+
+}
+
+#navbar li{
+    display:inline;
+
+}
+
+#navbar a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    padding-right:15px;
+
+}
+
+
+#main{
+ 
+ position: relative;
+ width:70%;
+ color:white;
+ float:right;
+ box-sizing:border-box;
+ margin-right:30px;
+}
+
+.list_items{
+            width: 100%;
+            padding: 10px;
+            border:0.4px solid #888;
+            margin: 10px;
+            background-color: #666;
+            color:white;
+        }
+#side_bar{
+
+ width:20%;
+ float:left;
+ box-sizing:border-box;
+}
+p{
+    display:inline;
+}
+
+    </style>
+</head>
+<body>
+
+
+        <div id= "navbar">
+                
+            
+
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Services</a></li>
+                <li style="margin-right:600px"><a href="">Contact</a></li>
+                
+
+        
+
+        </div>
+
+        {% if bid %}
+        <div id = "container">  
+           
+            
+                <div id = "main" >
+                    <ul>
+                        <h2><b>{{bid.Title}}</b></h2>
+                        <img src="" alt="Bid Image">
+                        <li><p><b>Type: </b></p> <p>{{bid.Catagory}}</p></li><br>
+                        <li><p><b>Available: </b></p> {{bid.Date_created}} to {{bid.Date_closing}}<p></p></li><br>
+                        <li><p><b>Base Cost: </b></p> <p>{{bid.Base_cost}}</p></li><br>
+                        <li><p><b>Total number of biders: </b></p> <p>{{bid.Total_number_of_biders}}</p></li><br>
+                        <li><p><b>Uploaded by: </b></p> <p>{{bid.Uploader}}</p></li><br>
+                    
+                    </ul>
+                   
+                </div>
+
+                <div id = "sidebar" >
+
+                    <div class="list_items">
+                            <h3>Contact info</h3>
+                           
+                            
+                            <form action="/{{user_id}}/{{bid.id}}/bid/" method="POST">{% csrf_token %}
+                                
+                                <label for="offering_price">Offering Price:</label><br>
+                                <input id="offering_price" type="number" name="price_area" value=" "> </input>
+                                
+                                <br><br>
+                            
+                                
+                                <input style= "width :50%; background:orage; margin:auto;" type="submit" name="bid_btn" value="Bid">
+                           
+                           
+                            </form>    
+                        </div>        
+                </div>
+    
+            
+            
+
+
+        </div>
+        {% endif %}
+
+    
+</body>
+</html>

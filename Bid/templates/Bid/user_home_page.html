@@ -1,0 +1,233 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chereta.com</title>
+
+    <style>
+       
+body{
+    margin:0px;
+    background-color:rgb(46, 46, 107);
+    
+}
+
+#main{
+ 
+    position: absolute;
+    width:70%;
+    color:white;
+  
+    box-sizing:border-box;
+    margin-left:25%;
+}
+#side_bar{
+   
+    width:20%;
+    float:left;
+    box-sizing:border-box;
+}
+
+input[type = "submit"]
+{
+    background-color:orange;
+    width:35%;
+    box-sizing:border-box;
+    font-size:1em;
+    padding:0.5em;
+    color:white;
+    border: hidden;
+    font-weight:bold;
+    border-radius: 0.5em;
+   
+    
+}
+
+
+.user_history_area{
+    width:90%;
+
+}
+
+.list_items{
+            width: 100%;
+            padding: 10px;
+            border:0.4px solid #888;
+            margin: 10px;
+            background-color: #666;
+            color:white;
+        }
+
+.ul{
+    padding:5px 10px;
+}
+
+.single_item{
+    padding:5px 10px;
+
+
+}
+
+.item_img{
+    width: 50px ;
+    
+    float:left;
+    box-sizing:border-box;
+}
+.item_body{
+   
+    float:right;
+    box-sizing:border-box;
+}
+#navbar{
+    padding:15px 25px;
+    color:white;
+    background:orange;
+
+
+
+}
+
+#navbar ul{
+    list-style: none;
+    padding:0;
+
+}
+
+#navbar li{
+    display:inline;
+
+}
+
+#navbar a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    padding-right:15px;
+
+}
+
+    </style>
+</head>
+<body>
+
+    
+
+    <div id= "navbar">
+            
+         {% csrf_token %}
+
+            <ul>
+                <li><a href="/{{index}}">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Services</a></li>
+                <li style="margin-right:700px"><a href="">Contact</a></li>
+                {%if user%}
+                <li><b>{{user.User_name}}</b></li>
+                {%endif%}
+
+        
+
+    </div>
+
+        <div id = "container">
+
+           
+           
+            
+                <div id="side_bar">
+                    {%if Posted_bids %}
+                        
+                        <div id = "posted_bids_area" class = "list_items">
+                            <h3>Your previous posted auctions</h3>
+                                {% for bid in Posted_bids %}
+                                    <ul>
+                                        <li> <b>{{bid.Title}}</b> <br>from {{bid.Date_created}} - {{bid.Date_closing}} 
+                                            <br>
+                                            <input type="submit" name="manage_posted_auctions" value="Manage">   
+                                        </li>
+                                    </ul>
+                                {%endfor%}
+                        </div>
+                    {% endif %}
+
+                        <div id= "post_new_auction" class = "list_items">
+                            <form action= "/{{user.id}}/new_post/">
+                            <input style="width:100%;" type="submit" name="new_post_btn" value="Post new Auction"/>
+                            </form>
+                        </div>
+                    
+                    {%if user and engaged_auctions.count != 0 %}
+                        <div id = "engaged_auctions_area" class = "list_items">
+
+                                <h3>Auctions u r engaged in</h3>
+                                {% for auction in engaged_auctions %} 
+                            
+                                    
+                                        <ul style="text-decoration:none;">
+                                        <li>
+                                             <b>{{ auction.Title }}</b> 
+                                             <br> 
+                                             price : {{auction.Offered_price}}
+                                             <br>
+                                             <input type="submit" name="manage_engaged_auctions" value="Manage">   
+                                        
+                                        </li>
+                                        
+                                        </ul>
+
+                                    {%endfor%}
+                        
+                           
+                                       
+                        </div>
+                    {%endif%}
+                    
+
+                
+                </div>
+            
+           
+            
+            <div id="main">
+               
+                    <h2>Recommended latest auctions</h2>
+                    
+                   
+                     {% if all_bids %}
+                        {% for bid in all_bids %}
+                            <ul>
+                                <li class = "list_items">
+                                
+                                    <img class = "item_img" src="" alt= "car image" >
+                                    
+                                    <h4>{{ bid.Title }}</h4>
+                                    <p>Base cost = {{ bid.Base_cost }}</p>
+                                    <p>Available : {{bid.Date_created }} - {{bid.Date_closing}}</p>
+                                   
+                                    <form action="/{{user.id}}/{{bid.id}}/bid_detail/" method="POST">{%  csrf_token %}
+                                        <input type="submit" value= "Detail"/>
+
+                                    </form>
+
+                                </li>
+                            </ul>            
+                        {% endfor %}
+                                    
+                     {%endif%}
+                       
+                 
+
+            </div>
+
+
+        </div>
+        
+
+
+
+    
+</body>
+</html>
